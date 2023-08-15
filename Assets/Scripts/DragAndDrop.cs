@@ -25,6 +25,15 @@ public class DragAndDrop : MonoBehaviour
 
     private void Update()
     {
+        if (Input.GetMouseButtonDown(0))
+        {
+            Vector3 mouseWorldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+            mouseWorldPosition.z = 0f;
+
+            transform.position = mouseWorldPosition;
+        }
+
         if (transform.position.x < min_X)
         {
             Vector3 moveDirX = new Vector3(min_X, transform.position.y, 0f);
